@@ -22,7 +22,7 @@ EOF
 
 resource "aws_iam_instance_profile" "base_iam_role_profile" {
   name = "${var.base_iam_role_name}_profile"
-  roles = ["${aws_iam_role.base_iam_role.id}"]
+  role = "${aws_iam_role.base_iam_role.id}"
 }
 
 #
@@ -67,7 +67,7 @@ EOF
 
 resource "aws_iam_instance_profile" "jenkins_instance_profile" {
   name = "jenkins_profile"
-  roles = ["${aws_iam_role.jenkins_role.id}"]
+  role = "${aws_iam_role.jenkins_role.id}"
 }
 
 
@@ -119,7 +119,7 @@ EOF
 
 resource "aws_iam_instance_profile" "properties_and_logging_instance_profile" {
   name = "properties_and_logging_profile"
-  roles = ["${aws_iam_role.properties_and_logging_role.id}"]
+  role = "${aws_iam_role.properties_and_logging_role.id}"
 }
 
 #
@@ -192,7 +192,7 @@ EOF
 
 resource "aws_iam_instance_profile" "spinnaker_instance_profile" {
   name = "spinnaker_profile"
-  roles = ["${aws_iam_role.spinnaker_role.id}"]
+  role = "${aws_iam_role.spinnaker_role.id}"
 
 }
 #

@@ -42,6 +42,8 @@ variable "eelb_public_subnet_block" {
     "1" = "1.0/24;eelb_public;{\"purpose\":\"eelb\",\"target\":\"elb\"}"
     "2" = "2.0/24;eelb_public;{\"purpose\":\"eelb\",\"target\":\"elb\"}"
     "3" = "3.0/24;eelb_public;{\"purpose\":\"eelb\",\"target\":\"elb\"}"
+    "4" = "36.0/24;eelb_public;{\"purpose\":\"eelb\",\"target\":\"elb\"}"
+    "5" = "37.0/24;eelb_public;{\"purpose\":\"eelb\",\"target\":\"elb\"}"
   }
 }
 
@@ -51,6 +53,8 @@ variable "admin_public_subnet_block" {
     "1" = "4.64/26;admin_public;{\"purpose\":\"admin\",\"target\":\"ec2\"}"
     "2" = "4.128/26;admin_public;{\"purpose\":\"admin\",\"target\":\"ec2\"}"
     "3" = "4.192/26;admin_public;{\"purpose\":\"admin\",\"target\":\"ec2\"}"
+    "4" = "11.0/26;admin_public;{\"purpose\":\"admin\",\"target\":\"ec2\"}"
+    "5" = "11.64/26;admin_public;{\"purpose\":\"admin\",\"target\":\"ec2\"}"
   }
 }
 
@@ -60,6 +64,8 @@ variable "ec2_public_subnet_block" {
     "1" = "16.0/22;ec2_public;{\"purpose\":\"ec2\",\"target\":\"ec2\"}"
     "2" = "20.0/22;ec2_public;{\"purpose\":\"ec2\",\"target\":\"ec2\"}"
     "3" = "24.0/22;ec2_public;{\"purpose\":\"ec2\",\"target\":\"ec2\"}"
+    "4" = "28.0/22;ec2_public;{\"purpose\":\"ec2\",\"target\":\"ec2\"}"
+    "5" = "32.0/22;ec2_public;{\"purpose\":\"ec2\",\"target\":\"ec2\"}"
   }
 }
 
@@ -69,8 +75,10 @@ variable "ielb_private_subnet_block" {
     "1" = "6.0/24;ielb_private;{\"purpose\":\"ielb\",\"target\":\"elb\"}"
     "2" = "7.0/24;ielb_private;{\"purpose\":\"ielb\",\"target\":\"elb\"}"
     "3" = "8.0/24;ielb_private;{\"purpose\":\"ielb\",\"target\":\"elb\"}"
+    "4" = "9.0/24;ielb_private;{\"purpose\":\"ielb\",\"target\":\"elb\"}"
+    "5" = "10.0/24;ielb_private;{\"purpose\":\"ielb\",\"target\":\"elb\"}"
   }
-} 
+}
 
 variable "aws_spinnaker_amis" {
   "default" = {

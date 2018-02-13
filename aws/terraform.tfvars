@@ -2,10 +2,10 @@
 #
 #	Variables to be updated by each user
 #
-region = "us-west-2"
-vpc_cidr = "192.168.0.0/16"
-vpc_name = "vpc_DIFFNAME"
-ssh_key_name = "my-aws-account-keypair"
+region = "us-east-1"
+vpc_cidr = "10.252.0.0/16"
+vpc_name = "spinnaker-terraform-akumar"
+ssh_key_name = "spinnaker-terraform-akumar"
 
 ssh_private_key_location = "~/.ssh/id_rsa_spinnaker_terraform"
 ssh_public_key_location = "~/.ssh/id_rsa_spinnaker_terraform.pub"
@@ -46,7 +46,7 @@ properties_and_logging_iam_role_name = "properties_and_logging_iam_role"
 #		Example:
 #	infra_jenkins_incoming_cidrs = "39.9.9.9/32,8.20.4.0/24"
 #
-#	NOTE: The IP of the machine that Terraform is running on will be automatically determined and does 
+#	NOTE: The IP of the machine that Terraform is running on will be automatically determined and does
 #		not need to be entered here.
 #
 infra_jenkins_incoming_cidrs = ""
@@ -58,7 +58,7 @@ infra_jenkins_incoming_cidrs = ""
 #	adm_bastion_incoming_cidrs = "39.9.9.9/32,8.20.4.0/24"
 #
 #
-#	NOTE: The IP of the machine that Terraform is running on will be automatically determined and does 
+#	NOTE: The IP of the machine that Terraform is running on will be automatically determined and does
 #		not need to be entered here.
 #
 adm_bastion_incoming_cidrs = ""

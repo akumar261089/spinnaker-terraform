@@ -102,7 +102,7 @@ for required_bin in git terraform
 do
 	blah=$(which $required_bin)
 	RETVAL=$?
-	
+
 	if [ "$RETVAL" != "0" ]; then
 		ERROR=1
 		echo "ERROR: I could not find a required binary: $required_bin, please install it."
@@ -193,7 +193,7 @@ if [ "$CLOUD_PROVIDER" == "aws" ]; then
     else
         echo "Downloading $CLOUD_PROVIDER specific information. If the script stops somewhere in here it's possible $CLOUD_PROVIDER is having API issues."
         COMMAND="./support/"$CLOUD_PROVIDER"_kenzan_spinnaker_get_info.py $CLOUD_PROVIDER"
-    
+
         echo $COMMAND
         eval $COMMAND
     fi
@@ -259,7 +259,8 @@ else
     	COMMAND="terraform $ACTION -state=$STATEPATH -backup=$STATEPATH.backup -var 'local_ip=$LOCAL_IP/32' -var 'kenzan_statepath=$STATEPATH' $TFVARS"
     fi
 fi
-
+echo "Running terraform init command"
+eval terraform init
 echo "Running terraform command:"
 echo $COMMAND
 echo ""

@@ -15,7 +15,7 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "ielb_private_subnets" {
 
   count = "${length(split(":", lookup(var.aws_azs, var.region)))}"
-  
+
   cidr_block           = "${element(split (".", var.vpc_cidr), 0)}.${element(split (".", var.vpc_cidr), 1)}.${element(split (";", "${lookup(var.ielb_private_subnet_block, count.index)}"), 0)}"
   availability_zone    = "${var.region}${element(split (":", "${lookup(var.aws_azs, var.region)}"), count.index%"${lookup(var.aws_az_counts, var.region)}")}"
     tags {
@@ -114,5 +114,3 @@ resource "aws_route_table_association" "ec2_public" {
     route_table_id = "${aws_route_table.gw_rt.id}"
     depends_on = ["aws_vpc.main", "aws_internet_gateway.gw"]
 }
-
-
