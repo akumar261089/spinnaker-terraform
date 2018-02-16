@@ -29,7 +29,7 @@ jenkins_admin_username = "admin"
 #	This NEEDS TO BE SET. Either in this file or you will be prompted for them.
 #		If you set them in here, uncomment them.
 #
-#jenkins_admin_password = "DO NOT LEAVE EMPTY IF YOU SET IT IN HERE"
+jenkins_admin_password = "admin"
 
 #
 #	IAM roles
