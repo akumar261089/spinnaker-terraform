@@ -5,7 +5,7 @@
 region = "us-east-1"
 vpc_cidr = "10.251.0.0/16"
 vpc_name = "vpc"
-ssh_key_name = "akumar-key"
+ssh_key_name = "key"
 
 ssh_private_key_location = "~/.ssh/id_rsa_spinnaker_terraform"
 ssh_public_key_location = "~/.ssh/id_rsa_spinnaker_terraform.pub"
