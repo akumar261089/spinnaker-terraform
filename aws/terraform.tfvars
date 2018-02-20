@@ -3,9 +3,9 @@
 #	Variables to be updated by each user
 #
 region = "us-east-1"
-vpc_cidr = "10.252.0.0/16"
-vpc_name = "spinnaker-terraform-akumar"
-ssh_key_name = "spinnaker-terraform-akumar"
+vpc_cidr = "10.251.0.0/16"
+vpc_name = "vpc"
+ssh_key_name = "akumar-key"
 
 ssh_private_key_location = "~/.ssh/id_rsa_spinnaker_terraform"
 ssh_public_key_location = "~/.ssh/id_rsa_spinnaker_terraform.pub"
@@ -29,7 +29,7 @@ jenkins_admin_username = "admin"
 #	This NEEDS TO BE SET. Either in this file or you will be prompted for them.
 #		If you set them in here, uncomment them.
 #
-jenkins_admin_password = "admin"
+# jenkins_admin_password = "DO NOT LEAVE EMPTY IF YOU SET IT IN HERE"
 
 #
 #	IAM roles

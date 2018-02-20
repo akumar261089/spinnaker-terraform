@@ -12,7 +12,10 @@ variable "jenkins_admin_username" {}
 variable "jenkins_admin_password" {}
 variable "packer_url" {}
 variable "created_by" {}
-
+variable "username" {}
+variable "prefix" {
+  default = "spinnaker-terraform"
+}
 variable "jenkins_instance_type" {}
 variable "bastion_instance_type" {}
 variable "spinnaker_instance_type" {}

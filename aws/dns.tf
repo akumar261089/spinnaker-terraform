@@ -2,7 +2,7 @@ resource "aws_route53_zone" "internal" {
 	name = "${var.internal_dns_zone}"
 
 	tags = {
-		name = "${var.internal_dns_zone}"
+		name = "${var.username}-${var.prefix}-${var.internal_dns_zone}"
 		purpose = "Spinnaker"
 	}
 
