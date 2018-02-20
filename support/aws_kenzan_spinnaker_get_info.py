@@ -4,6 +4,7 @@ import sys
 import re
 import pprint
 import os
+import subprocess
 
 try:
     import boto.ec2
@@ -63,7 +64,7 @@ def get_aws_info():
     ami_data = {}
 
     data['variable'] = {}
-
+    data['variable']['AWS_DEFAULT_ACCOUNT']['default'] = subprocess.Popen("aws iam get-user | grep arn:aws | cut -d':' -f6", shell=True, stdout=subprocess.PIPE).stdout.read()[:-1] 
     data['variable']['aws_azs'] = {}
     data['variable']['aws_az_counts'] = {}
     data['variable']['aws_ubuntu_amis'] = {}
@@ -148,7 +149,7 @@ def get_aws_info():
 
     '''
     Check to make sure all parts have some data in them
-    
+
     Things to check:
         data['variable']['az_counts']['default'] has more than 1 entry
         data['variable']['azs']['default'] has more than 1 entry
@@ -170,7 +171,7 @@ def get_aws_info():
         print "WARING: NO SPINNAKER AMI DATA"
         data_error = True
     '''
-    
+
     if data_error:
         if os.path.isfile(variables_file):
             # exit status 1 means there was a data error, but the variables
@@ -206,7 +207,7 @@ def main(argv):
         print "Invalid Cloud Provider"
         exit(1)
 
-    
+
 
 if __name__ == "__main__":
     main(sys.argv)

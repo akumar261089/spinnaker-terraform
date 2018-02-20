@@ -134,6 +134,7 @@ resource "aws_instance" "spinnaker" {
 
   provisioner "remote-exec" {
     inline = [
+      "echo write_default_value SPINNAKER_AWS_DEFAULT_ACCOUNT ${var.AWS_DEFAULT_ACCOUNT} >> /home/ubuntu/.init-region",
       "chmod a+x /home/ubuntu/.init-region",
       "/home/ubuntu/.init-region",
       "echo init region done.",
