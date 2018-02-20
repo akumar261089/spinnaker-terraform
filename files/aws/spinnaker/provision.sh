@@ -11,7 +11,11 @@ echo "deb http://jenkins.$2:8000/ binary/" > /etc/apt/sources.list.d/deb-interna
 #
 #	modify spinnaker-local.yml to set igor_enabled to True
 #
-sed -i.bak -e "s/igor_enabled\: false/igor_enabled\: true/" /opt/spinnaker/config/spinnaker-local.yml
+
+sed -i.bak2 -e '/igor:/{ n;N;N;{d};}' /opt/spinnaker/config/spinnaker-local.yml
+sed -i.bak -e 's/igor:/igor:\n     enabled: true/' /opt/spinnaker/config/spinnaker-local.yml
+
+#sed -i.bak -e "s/igor_enabled\: false/igor_enabled\: true/" /opt/spinnaker/config/spinnaker-local.yml
 
 
 service igor start
