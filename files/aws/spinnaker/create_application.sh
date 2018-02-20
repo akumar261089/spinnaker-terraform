@@ -12,6 +12,10 @@ sudo pip install docopt
 
 
 cd /tmp/terraform/
+prefix=`echo $4|cut -f1-3 -d -`
+key=`echo $prefix-key`
+echo $key
+sed -i "s/my-aws-account-keypair/$key/" pipeline_create.json
 #/tmp/terraform/create_application_and_pipeline.py -a testappname -p testappnamepipeline -g sg-a6ebd8c2 -i vpc-cde4d4a8 -v sg-daebd8be -m sg-0ae8db6e -n vpc_DIFFNAME -r us-west-2 -o base_iam_role_testing_diff_name_profile
 
 chmod a+x create_application_and_pipeline.py
