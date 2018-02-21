@@ -29,7 +29,7 @@ jenkins_admin_username = "admin"
 #	This NEEDS TO BE SET. Either in this file or you will be prompted for them.
 #		If you set them in here, uncomment them.
 #
-# jenkins_admin_password = "DO NOT LEAVE EMPTY IF YOU SET IT IN HERE"
+jenkins_admin_password = "admin"
 
 #
 #	IAM roles
@@ -74,7 +74,7 @@ ssh_user = "ubuntu"
 #	What kind of ubuntu AMI's do you want.
 #		These are the recommended values. CHANGE AT YOUR OWN RISK.
 #
-ubuntu_distribution = "trusty"
+ubuntu_distribution = "xenial"
 ubuntu_virttype = "hvm"
 ubuntu_architecture = "amd64"
 ubuntu_storagetype = "ebs-ssd"

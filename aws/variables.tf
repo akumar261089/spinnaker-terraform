@@ -12,7 +12,6 @@ variable "jenkins_admin_username" {}
 variable "jenkins_admin_password" {}
 variable "packer_url" {}
 variable "created_by" {}
-variable "username" {}
 variable "prefix" {
   default = "spinnaker-terraform"
 }
