@@ -145,7 +145,7 @@ resource "aws_instance" "spinnaker" {
   provisioner "remote-exec" {
     inline = [
       "chmod a+x /tmp/terraform/create_application.sh",
-      "/tmp/terraform/create_application.sh ${var.region} ${aws_vpc.main.id} ${var.base_iam_role_name} ${var.username}-${var.prefix}-${var.vpc_name} ${aws_security_group.example_app.id} ${aws_security_group.vpc_sg.id} ${aws_security_group.mgmt_sg.id}"
+      "/tmp/terraform/create_application.sh ${var.region} ${aws_vpc.main.id} ${var.username}-${var.prefix}-${var.base_iam_role_name} ${var.username}-${var.prefix}-${var.vpc_name} ${aws_security_group.example_app.id} ${aws_security_group.vpc_sg.id} ${aws_security_group.mgmt_sg.id}"
     ]
   }
 
