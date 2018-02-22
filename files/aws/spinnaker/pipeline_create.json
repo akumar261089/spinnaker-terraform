@@ -17,7 +17,7 @@
       "name": "Bake",
       "baseLabel": "unstable",
       "sendNotifications": false,
-      "baseOs": "xenial",
+      "baseOs": "trusty",
       "requisiteStageRefIds": [],
       "baseAmi": "",
       "package": "hello-karyon-rxnetty",
