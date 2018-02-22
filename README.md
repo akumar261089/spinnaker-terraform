@@ -18,3 +18,4 @@ This is a set of terraform files and scripts designed to create a cloud environm
 
 ## TODO
 * Remove unnecessary packages and services from the Bastion host.
+## Halyard for Spinnaker configuration
