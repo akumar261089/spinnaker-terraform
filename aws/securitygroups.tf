@@ -5,7 +5,7 @@ resource "aws_security_group" "adm_bastion" {
   name="ADM_BASTION"
   description="Bastion Host SG"
   tags {
-    Name="${var.username}-${var.prefix}-ADM_BASTION"
+    Name="ADM_BASTION-${var.prefix}-${var.username}"
     created_by="${var.created_by}"
     application="none"
     allocated="false"
@@ -20,7 +20,7 @@ resource "aws_security_group" "eelb" {
   name="EELB"
   description="security group for eelb"
   tags {
-    Name="${var.username}-${var.prefix}-EELB"
+    Name="EELB-${var.prefix}-${var.username}"
     created_by="${var.created_by}"
     application="none"
     allocated="false"
@@ -53,7 +53,7 @@ resource "aws_security_group" "ielb" {
   name="IELB"
   description="security group for ielb"
   tags {
-    Name="${var.username}-${var.prefix}-IELB"
+    Name="IELB-${var.prefix}-${var.username}"
     created_by="${var.created_by}"
     application="none"
     allocated="false"
@@ -86,7 +86,7 @@ resource "aws_security_group" "vpc_sg" {
   name="VPC_${element(split ("-", "${aws_vpc.main.id}"), 1)}"
   description="VPC Default Security group for ${aws_vpc.main.id}"
   tags {
-    Name="${var.username}-${var.prefix}-VPC_${element(split ("-", "${aws_vpc.main.id}"), 1)}"
+    Name="VPC_${element(split ("-", "${aws_vpc.main.id}"), 1)}-${var.prefix}-${var.username}"
     created_by="${var.created_by}"
     application="none"
     allocated="false"
@@ -288,7 +288,7 @@ resource "aws_security_group" "mgmt_sg" {
   name="MGMT_${element(split ("-", "${aws_vpc.main.id}"), 1)}"
   description="MGMT Security group for ${aws_vpc.main.id}"
   tags {
-    Name="${var.username}-${var.prefix}-MGMT_${element(split ("-", "${aws_vpc.main.id}"), 1)}"
+    Name="MGMT_${element(split ("-", "${aws_vpc.main.id}"), 1)}-${var.prefix}-${var.username}"
     created_by="${var.created_by}"
     application="none"
     allocated="false"
@@ -310,7 +310,7 @@ resource "aws_security_group" "infra_spinnaker" {
   name="INFRA_SPINNAKER"
   description="Spinnaker Security group for ${aws_vpc.main.id}"
   tags {
-    Name="${var.username}-${var.prefix}-INFRA_SPINNAKER"
+    Name="INFRA_SPINNAKER-${var.prefix}-${var.username}"
     created_by="${var.created_by}"
     application="none"
     allocated="false"
@@ -325,7 +325,7 @@ resource "aws_security_group" "infra_jenkins" {
   name="INFRA_JENKINS"
   description="Jenkins Security group for ${aws_vpc.main.id}"
   tags {
-    Name="${var.username}-${var.prefix}-INFRA_JENKINS"
+    Name="INFRA_JENKINS-${var.prefix}-${var.username}"
     created_by="${var.created_by}"
     application="none"
     allocated="false"
@@ -353,7 +353,7 @@ resource "aws_security_group" "example_app" {
   name="EXAMPLE_SG"
   description="Spinnaker Security group for ${aws_vpc.main.id}"
   tags {
-    Name="${var.username}-${var.prefix}-EXAMPLE_SG"
+    Name="EXAMPLE_SG-${var.prefix}-${var.username}"
     created_by="${var.created_by}"
     application="none"
     allocated="false"

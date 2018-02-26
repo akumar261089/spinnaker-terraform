@@ -7,7 +7,7 @@ resource "aws_vpc" "main" {
     instance_tenancy = "default"
     enable_dns_hostnames = "true"
     tags {
-        Name = "${var.username}-${var.prefix}-${var.vpc_name}"
+        Name = "${var.vpc_name}-${var.prefix}-${var.username}"
     }
 }
 
@@ -19,7 +19,7 @@ resource "aws_subnet" "ielb_private_subnets" {
   cidr_block           = "${element(split (".", var.vpc_cidr), 0)}.${element(split (".", var.vpc_cidr), 1)}.${element(split (";", "${lookup(var.ielb_private_subnet_block, count.index)}"), 0)}"
   availability_zone    = "${var.region}${element(split (":", "${lookup(var.aws_azs, var.region)}"), count.index%"${lookup(var.aws_az_counts, var.region)}")}"
     tags {
-      Name               = "${var.username}-${var.prefix}-${var.vpc_name}.${element(split (";", "${lookup(var.ielb_private_subnet_block, count.index)}"), 1)}.${var.region}"
+      Name               = "${var.vpc_name}-${var.prefix}-${var.username}.${element(split (";", "${lookup(var.ielb_private_subnet_block, count.index)}"), 1)}.${var.region}"
     }
   vpc_id = "${aws_vpc.main.id}"
 }
@@ -35,7 +35,7 @@ resource "aws_subnet" "eelb_public_subnet" {
   map_public_ip_on_launch = true
   depends_on = ["aws_internet_gateway.gw"]
     tags {
-      Name               = "${var.username}-${var.prefix}-${var.vpc_name}.${element(split (";", "${lookup(var.eelb_public_subnet_block, count.index)}"), 1)}.${var.region}"
+      Name               = "${var.vpc_name}-${var.prefix}-${var.username}.${element(split (";", "${lookup(var.eelb_public_subnet_block, count.index)}"), 1)}.${var.region}"
     }
   vpc_id = "${aws_vpc.main.id}"
 }
@@ -50,7 +50,7 @@ resource "aws_subnet" "admin_public_subnet" {
   map_public_ip_on_launch = true
   depends_on = ["aws_internet_gateway.gw"]
     tags {
-      Name               = "${var.username}-${var.prefix}-${var.vpc_name}.${element(split (";", "${lookup(var.admin_public_subnet_block, count.index)}"), 1)}.${var.region}"
+      Name               = "${var.vpc_name}-${var.prefix}-${var.username}.${element(split (";", "${lookup(var.admin_public_subnet_block, count.index)}"), 1)}.${var.region}"
     }
   vpc_id = "${aws_vpc.main.id}"
 }
@@ -65,7 +65,7 @@ resource "aws_subnet" "ec2_public_subnet" {
   map_public_ip_on_launch = true
   depends_on = ["aws_internet_gateway.gw"]
     tags {
-      Name               = "${var.username}-${var.prefix}-${var.vpc_name}.${element(split (";", "${lookup(var.ec2_public_subnet_block, count.index)}"), 1)}.${var.region}"
+      Name               = "${var.vpc_name}-${var.prefix}-${var.username}.${element(split (";", "${lookup(var.ec2_public_subnet_block, count.index)}"), 1)}.${var.region}"
     }
   vpc_id = "${aws_vpc.main.id}"
 }
