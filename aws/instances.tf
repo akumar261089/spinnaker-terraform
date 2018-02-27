@@ -89,10 +89,22 @@ resource "aws_instance" "jenkins" {
     created_by = "${var.created_by}"
   }
 }
+/* Spinnaker AMI */
+data "aws_ami" "spinnaker_ami" {
+  most_recent      = true
+  filter {
+    name = "architecture"
+    values = ["x86_64"] 
+  }
+  filter {
+    name   = "name"
+    values = ["Spinnaker-Ubuntu*"]
+  }
+}
 
 /* Spinnaker instance */
 resource "aws_instance" "spinnaker" {
-  ami = "${lookup(var.aws_spinnaker_amis, format("%s-%s", var.region, var.ubuntu_virttype))}"
+  ami = "${data.aws_ami.spinnaker_ami.id}"
   instance_type = "${var.spinnaker_instance_type}"
   subnet_id = "${aws_subnet.admin_public_subnet.1.id}"
   vpc_security_group_ids = ["${aws_security_group.infra_spinnaker.id}", "${aws_security_group.vpc_sg.id}", "${aws_security_group.mgmt_sg.id}"]
