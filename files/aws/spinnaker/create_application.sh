@@ -12,7 +12,7 @@ sudo pip install docopt
 
 
 cd /tmp/terraform/
-prefix=`echo $4|cut -f1-3 -d -`
+prefix=$8
 key=`echo $prefix-key`
 echo $key
 sed -i "s/my-aws-account-keypair/$key/" pipeline_create.json
