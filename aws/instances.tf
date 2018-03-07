@@ -129,11 +129,11 @@ resource "aws_instance" "spinnaker" {
   provisioner "remote-exec" {
     inline = [
       "chmod a+x /tmp/terraform/provision.sh",
-      "sudo /tmp/terraform/provision.sh ${var.region} ${var.internal_dns_zone} ${var.jenkins_admin_username} ${var.jenkins_admin_password}"
+      "sudo /tmp/terraform/provision.sh ${var.region} ${var.internal_dns_zone} ${var.jenkins_admin_username} ${var.jenkins_admin_password} ${var.AWS_ACCESS_KEY_ID} ${var.AWS_SECRET_ACCESS_KEY}"
     ]
   }
 
-  provisioner "remote-exec" {
+/*  provisioner "remote-exec" {
     inline = [
       "echo write_default_value SPINNAKER_AWS_DEFAULT_ACCOUNT ${var.AWS_DEFAULT_ACCOUNT} >> /home/ubuntu/.init-region",
       "chmod a+x /home/ubuntu/.init-region",
@@ -142,7 +142,7 @@ resource "aws_instance" "spinnaker" {
       "sudo service spinnaker restart"
     ]
   }
-
+*/
   provisioner "remote-exec" {
     inline = [
       "chmod a+x /tmp/terraform/create_application.sh",

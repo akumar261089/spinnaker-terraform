@@ -66,6 +66,8 @@ def get_aws_info():
     data['variable'] = {}
     data['variable']['AWS_DEFAULT_ACCOUNT']={'default' :  subprocess.Popen("aws iam get-user | grep arn:aws | cut -d':' -f6", shell=True, stdout=subprocess.PIPE).stdout.read()[:-1] }
     data['variable']['username']={'default' :  subprocess.Popen("aws iam get-user | grep arn:aws | cut -d':' -f7| cut -d'/' -f2", shell=True, stdout=subprocess.PIPE).stdout.read()[:-2] }
+    data['variable']['AWS_ACCESS_KEY_ID']={'default' :  os.environ['AWS_ACCESS_KEY_ID'] }
+    data['variable']['AWS_SECRET_ACCESS_KEY']={'default' : os.environ['AWS_SECRET_ACCESS_KEY'] }
     data['variable']['aws_azs'] = {}
     data['variable']['aws_az_counts'] = {}
     data['variable']['aws_ubuntu_amis'] = {}

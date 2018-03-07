@@ -6,6 +6,7 @@ sudo apt-get -y install python-pip
 
 sudo pip install boto
 sudo pip install docopt
+sudo pip install requests
 
 
 #${var.region} ${aws_vpc.main.id} ${var.base_iam_role_name} ${var.vpc_name} ${aws_security_group.infra_spinnaker.id} ${aws_security_group.vpc_sg.id} ${aws_security_group.mgmt_sg.id}
