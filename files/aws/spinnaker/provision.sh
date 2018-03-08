@@ -30,6 +30,10 @@
 	hal config storage edit --type s3
 
     ## config  AWS
+	hal config provider aws account add $7 \
+	    --account-id $8 \
+	    --assume-role role/spinnakerManaged
+
 	echo $6 | hal config provider aws edit --access-key-id $5   --secret-access-key 
     hal config provider aws enable
 	##configure jenkins

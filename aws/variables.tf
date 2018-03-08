@@ -12,6 +12,9 @@ variable "jenkins_admin_username" {}
 variable "jenkins_admin_password" {}
 variable "packer_url" {}
 variable "created_by" {}
+variable "AWS_ACCOUNT_NAME" {
+  default = "my-aws-account"
+}
 variable "prefix" {
   default = "spinnaker-terraform"
 }

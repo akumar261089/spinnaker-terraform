@@ -129,7 +129,7 @@ resource "aws_instance" "spinnaker" {
   provisioner "remote-exec" {
     inline = [
       "chmod a+x /tmp/terraform/provision.sh",
-      "sudo /tmp/terraform/provision.sh ${var.region} ${var.internal_dns_zone} ${var.jenkins_admin_username} ${var.jenkins_admin_password} ${var.AWS_ACCESS_KEY_ID} ${var.AWS_SECRET_ACCESS_KEY}"
+      "sudo /tmp/terraform/provision.sh ${var.region} ${var.internal_dns_zone} ${var.jenkins_admin_username} ${var.jenkins_admin_password} ${var.AWS_ACCESS_KEY_ID} ${var.AWS_SECRET_ACCESS_KEY} ${var.AWS_ACCOUNT_NAME} ${var.AWS_DEFAULT_ACCOUNT}"
     ]
   }
 
